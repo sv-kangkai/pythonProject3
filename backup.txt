@@ -1,0 +1,21 @@
+Linkvertise网站
+
+# # 如果弹出用户协议，点击同意按钮
+# try:
+#     browser.find_element(By.CLASS_NAME, 'css-6dzqka').click()
+# except:
+#     print('Can not find CSS named: css-6dzqka, not necessary click \'AGREE\' button. Continue.')
+
+WebDriverWait(browser, 600).until(
+    EC.presence_of_element_located((By.TAG_NAME, "body"))
+)
+
+# 点击 Free Access with Ads 按钮
+try:
+    browser.find_element(By.CSS_SELECTOR, '.lv-button-component.new-button-style.lv-dark-btn ng-star-inserted').click()
+    browser.find_element(By.CSS_SELECTOR, '.h5-mobile-small.display-web-short').click()
+    time.sleep(5)
+    browser.find_element(By.CSS_SELECTOR, '.mat-icon.notranslate.material-icons.mat-icon-no-color').click()
+    browser.find_element(By.CSS_SELECTOR, '.text.countdownTodoText').click()
+except:
+    print('Click \'Free Access with Ads\'')
